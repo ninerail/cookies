@@ -1,0 +1,89 @@
+
+h1 {
+	font-family: 'Schoolbell', cursive;
+	font-size: 4em;
+	color: #fd8181;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+	}
+
+#container {
+	background-color: #feff99;
+	padding: 1em;
+	max-width: 43em;
+	margin: 0 auto;
+}
+
+section {
+	width: 90%;
+	border: 6px solid #a88eea;
+	border-radius: 1em;
+	margin: 0 auto;
+	padding: 1em;
+	margin-bottom: .5em;
+}
+
+p {
+	font-family: 'Schoolbell' ;
+	font-size: 1em;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+body {
+	background-color: #beff95
+}
+
+h2 {
+	font-family: 'Schoolbell';
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: .25em;
+}
+
+#trefoil{
+	max-width: 8%;
+	height: auto;
+}
+
+.item {
+	width: 19em;
+	display: inline-block;
+	margin-left: 1em;
+	border: 6px solid #fde689;
+	margin-bottom: 1em;
+}
+
+h3 {
+	font-family: 'Schoolbell';
+	margin: 0;
+	margin-left: .25em;
+}
+
+.request{
+	text-align: left;
+}
+
+.navbutton {
+   padding: 20px;
+   margin: 10px;
+   background: #fd8181;
+   color: #fff;
+   font-size: 21px;
+   line-height: 1.3em;
+   border-radius: 10px;
+   width: 40%;
+   display: inline-block;
+   margin-right: .25em;
+   margin-left: .78em;
+}

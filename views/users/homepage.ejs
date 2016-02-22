@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Annaliese's Cookie Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id="container">
+		<section>
+			<h1>Annaliese's <img id="trefoil" src="images/trefoil.png"> Cookie Store</h1>
+		</section>
+		<section>
+			<p>Hi! My name is Annaliese Jamison and I'm selling Girl Scout cookies to raise money for our Brownie activities. If you like, you can also buy cookies to be donated to <a href="http://opshoeboxnj.org/">Operation Shoebox.</a> Thank you!</p>
+		</section>
+		<section>
+			<h2>Register</h2>
+			<form action="/users" method="POST">
+				<input type="text" name="firstname" placeholder="First Name">
+				<input type="text" name="lastname" placeholder="Last Name">
+				<input type="text" name="email" placeholder="email address">
+				<input type="password" name="password" placeholder="password">
+				<input type="submit">
+			</form>
+			<h2>Login</h2>
+			<form action="/users" method="POST">
+				<input type="text" name="firstname" placeholder="First Name">
+				<input type="text" name="lastname" placeholder="Last Name">
+				<input type="password" name="password" placeholder="password">
+				<input type="submit">
+			</form>
+		</section>
+		<% for (var i = 0; i < cookies.length; i++) { %> 
+			<a href="/cookies/<%=  cookies[i]._id  %>">
+				<div class="item">
+					<img src="<%= cookies[i].img %>">
+					<h3><%= cookies[i].cookiename %></h3>
+				</div>
+			</a>
+		<% } %>
+</body>
+</html>
