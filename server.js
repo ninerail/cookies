@@ -1,10 +1,15 @@
 //Requirements
-var express					= require('express'),
-		bodyParser			= require('body-parser'),
-		methodOverride	= require('method-override'),
-		mongoose				=	require('mongoose')
-		port 						= 3000 || process.env.PORT,
-		app							= express();
+var express					= require('express');
+var bodyParser			= require('body-parser');
+var		methodOverride	= require('method-override');
+var	mongoose				=	require('mongoose');
+var	port 						= 3000 || process.env.PORT;
+var	app							= express();
+var passport        = require('passport');
+var morgan          = require('morgan');
+var session         = require('express-session');
+    
+require('./config/passport.js')(passport);
 
 //Create mongodb database
 mongoose.connect('mongodb://localhost/cookies');
@@ -19,6 +24,11 @@ app.use(express.static('public'));
 //middleware; for body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//middlewear for passport
+app.use(session({ name: 'whut', secret: 'secret' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session());
 
 //middleware for method override
 app.use(methodOverride(function(req, res){

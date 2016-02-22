@@ -6,6 +6,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<%= login %>
 	<div id="container">
 		<section>
 			<h1>Annaliese's <img id="trefoil" src="../images/trefoil.png"> Cookie Store</h1>
@@ -16,18 +17,21 @@
 			<h2><%= cookie.headline %></h2>
 			<p><%= cookie.description %></p>
 		</section>
-		<section>
-			<h2 class='request'>How many boxes would you like?</h2>
-			<form action="/cookies/<%= cookie._id %>" method="POST">
-				<input type="number" name="boxes">
-				<input type="submit">
-			</form>
-		</section>
-		<a href="">
-			<div class="navbutton">
-	    	<h2>Finish my order</h2>
-			</div>
-		</a>
+		<% if (login === true) { %>
+			<section>
+				<h2 class='request'>How many boxes would you like?</h2>
+				<form action="/cookies/<%= cookie._id %>" method="POST">
+					<input type="number" name="boxes">
+					<input type="submit">
+				</form>
+			</section>
+			<a href="">
+				<div class="navbutton">
+		    	<h2>Finish my order</h2>
+				</div>
+			</a>
+		<% } %>
+
 		<a href="/users">
 			<div class="navbutton">
 				<h2> Home </h2>
