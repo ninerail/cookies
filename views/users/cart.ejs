@@ -2,8 +2,32 @@
 <html>
 <head>
 	<title>Annaliese's Cookie Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/cart.js"></script>
 </head>
 <body>
-	Cart
+<%= login %>
+	<div id="container">
+		<section>
+			<h1>Annaliese's <img id="trefoil" src="../images/trefoil.png"> Cookie Store</h1>
+		</section>
+		<section>
+			<h1>My Order</h1>
+		</section>
+		<section>
+			<h4>Name: <%=user.firstname + " " + user.lastname%></h4>
+			<table style="width:100%">
+				<% for (var i = 0; i < cookies.length; i++) { %>
+					<tr>
+						<td><%= cookies[i].cookiename %></td>
+						<% for (var j = 0; j < user.order.length; j++) { %>
+								<td> <%= user.order[j][cookies[i].id] %></td>
+						<% } %>
+					</tr>
+				<% } %>
+			</table>
+		</section>
 </body>
 </html>

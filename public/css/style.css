@@ -87,3 +87,22 @@ h3 {
    margin-right: .25em;
    margin-left: .78em;
 }
+
+h4 {
+	font-family: sans-serif;
+	margin-top: 1em;
+	padding: 0;
+	margin: 0;
+}
+
+.lineitem {
+	border: 2px solid #beff95;
+	height: 2em;
+	padding: .5em;
+	margin: 0;
+	margin-bottom: .5em;
+}
+
+td {
+	font-family: sans-serif;
+}

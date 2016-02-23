@@ -34,8 +34,11 @@ router.get('/:id', function(req, res){
 	});
 });
 
-//route to get boxes ordered from show page
+//============
+// The big sucker
+//===========
 
+//route to get boxes ordered from show page
 router.post('/:id', function(req, res){
 
 	//find the cookie matching the id param

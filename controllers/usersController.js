@@ -53,11 +53,27 @@ router.get('/:id/json', function(req, res){
 	});
 });
 
-//route to summary page, not visible to public
-router.get('/summary', function(req, res){
-	res.send('hi');
-	//res.send(User);
-})
+//route to cart page for checkout
+router.get('/cart', function(req, res){
+
+	//send the login variable
+	res.locals.login = (req.isAuthenticated());
+
+	console.log('user id: ' + req.user.id);
+
+	//send the user information
+	User.findById(req.user.id, function (err, user){
+
+		//find and send info for all cookies
+		Cookie.find(function(err,cookies){
+
+			//render the cart ejs with cookies and user
+			res.render('users/cart.ejs', {user: user, cookies: cookies});
+		});
+	});
+});
+
+
 
 // //route to render homepage with user logged in
 // router.get('/:id', function(req, res){
