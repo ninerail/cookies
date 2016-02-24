@@ -59,8 +59,27 @@ router.get('/cart', function(req, res){
 	//send the login variable
 	res.locals.login = (req.isAuthenticated());
 
+	var cookiedata = [];
 	//send the user information
 	User.findById(req.user.id, function (err, user){
+
+		
+		// user.order.forEach(function(cookieInfo) {
+
+		// 	for (var key in cookieInfo) {
+
+		// 		Cookie.findById(key, function(cookie) {
+		// 			cookiedata.push({ 
+		// 				cookietype: cookie,
+		// 				qty: cookieInfo[key]
+		// 			});
+		// 		}); 
+
+		// 	}; 
+
+		// 	console.log(cookiedata);
+
+		// });
 
 		//find and send info for all cookies
 		Cookie.find(function(err,cookies){

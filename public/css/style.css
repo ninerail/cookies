@@ -115,3 +115,11 @@ span {
 	font-family: Cursive;
 	font-size: 3em;
 }
+
+.cimg {
+	height: 2.5em;
+	width: 2.5em;
+	background-color: red;
+	border-radius: 50%;
+	float: left;
+}
