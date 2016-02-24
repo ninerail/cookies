@@ -1,9 +1,9 @@
 //Requirements
 var express					= require('express');
 var bodyParser			= require('body-parser');
-var		methodOverride	= require('method-override');
+var	methodOverride	= require('method-override');
 var	mongoose				=	require('mongoose');
-var	port 						= 3000 || process.env.PORT;
+var	port 						= process.env.PORT || 3000;
 var	app							= express();
 var passport        = require('passport');
 var morgan          = require('morgan');
@@ -12,7 +12,8 @@ var session         = require('express-session');
 require('./config/passport.js')(passport);
 
 //Create mongodb database
-mongoose.connect('mongodb://localhost/cookies');
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/cookies';
+mongoose.connect(mongoUri);
 
 //Require controllers for my two models
 usersController 	= require('./controllers/usersController');
