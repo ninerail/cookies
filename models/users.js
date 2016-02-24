@@ -22,6 +22,9 @@ var userSchema = mongoose.Schema({
 	//password
 	password: String,
 
+	//has order been confirmed?
+	confirmed: Boolean,
+
 	//array of cookies ordered
 	order: []
 

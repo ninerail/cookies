@@ -17,17 +17,68 @@
 			<h1>My Order</h1>
 		</section>
 		<section>
-			<h4>Name: <%=user.firstname + " " + user.lastname%></h4>
+			<h4><%=user.firstname + " " + user.lastname%></h4>
 			<table style="width:100%">
+				<% var totalcost = 0; %>
+				<tr>
+					<td><b></b></td>
+					<td align="right"><b>Boxes</b></td>
+					<td align="right"><b>Price</b></td>
+					<td align="right"><b>Cost</b></td>
+				</tr>
 				<% for (var i = 0; i < cookies.length; i++) { %>
 					<tr>
+						<%var linecost = 0; %>
 						<td><%= cookies[i].cookiename %></td>
+						<% var numberHere = false; %>
 						<% for (var j = 0; j < user.order.length; j++) { %>
-								<td> <%= user.order[j][cookies[i].id] %></td>
+							<% var cost = user.order[j][cookies[i].id] %>
+								<% if (cost) { %>
+									<td align="right"> <%= cost %></td>
+									<% linecost += cost; %>
+									<% numberHere = true %>
+								<% } %>
+						<% } %>									
+						<% if (numberHere === false) { %>
+							<td align="right">0</td>
 						<% } %>
+						<td align="right">4</td>
+						<td align="right"><%= linecost*4 %></td>
+						<% totalcost += (linecost*4) %>
 					</tr>
 				<% } %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><b></b></td>
+					<td align="right"><b>$<%=totalcost%>.00</b></td>
+				</tr>
 			</table>
+		</section>
+		<section>
+			<ul>
+				<li>We are unable to ship cookies</li>
+				<li>Please give cash or a check made payable to .. to Matt or Cami Jamison</li>
+				<li>Matt will deliver cookies to GA before the end of the course</li>
+				<li>By clicking "submit order" below, you promise to pay for your cookies</li>
+				<li>Stiffing a girl scout is a serious sin!</li>
+			</ul>
+		</section>
+		<section>
+			<a href="finish">
+				<div class="navbutton">
+					<h2>Submit Order</h2>
+				</div>
+			</a>
+			<a href="/users">
+				<div class="navbutton">
+					<h2>Home</h2>
+				</div>
+			</a>
+			<form action="/users/cart" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<button id="delete-button">Clear Form</button>
+			</form>
 		</section>
 </body>
 </html>

@@ -11,9 +11,9 @@ var passport = require('passport');
 
 //route to make user page (homepage)
 router.get('/', function (req, res){ 
-	//find all cookies
+	//send login variable
 	res.locals.login = (req.isAuthenticated());
-	console.log(res.locals.login);
+	//find all cookies
 	Cookie.find(function(err,cookies){
 		res.render('users/homepage.ejs', { cookies });
 	})	
@@ -59,8 +59,6 @@ router.get('/cart', function(req, res){
 	//send the login variable
 	res.locals.login = (req.isAuthenticated());
 
-	console.log('user id: ' + req.user.id);
-
 	//send the user information
 	User.findById(req.user.id, function (err, user){
 
@@ -72,6 +70,46 @@ router.get('/cart', function(req, res){
 		});
 	});
 });
+
+//route to finish page
+router.get('/finish', function(req, res){
+
+		//find user by id
+		res.render('users/finish.ejs');
+});
+
+//route to admin page (not visible to public)
+router.get('/admin', function(req, res){
+
+	//find the user information
+	User.find(function(err, user){
+
+		//find the cookie information
+		Cookie.find(function(err, cookies){
+
+			//render admin page with all user and cookie data
+			res.render('users/admin.ejs', {user : user, cookies: cookies});
+
+		});
+	});
+});
+
+//route to delete order data
+router.delete('/cart', function(req, res){
+	//find user by id
+	User.findByIdAndUpdate(req.user.id, { order : [] }, function(err, user){
+
+		//empty the array
+		req.user.order = [];
+
+		//save it
+		user.save(function(err){
+			res.redirect('/users/cart');
+		})
+	})
+});
+
+
 
 
 

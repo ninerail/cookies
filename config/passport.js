@@ -70,6 +70,7 @@ module.exports = function(passport) {
                 newUser.password = newUser.generateHash(password);
                 newUser.firstname = req.body.firstname;
                 newUser.lastname = req.body.lastname;
+                newUser.confirmed = false
                 // save the user
                 newUser.save(function(err) {
                     if (err)

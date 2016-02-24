@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Annaliese's Cookie Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id="container">
+		<section>
+			<h1>Admin Page (Not visible to public)</h1>
+		</section>
+		<section>
+			<table>
+				<% for (var i = 0; i < user.length; i++) { %>
+					<tr>
+						<td><b><%= user[i].firstname + ' ' + user[i].lastname%></b></td>
+					</tr>
+					<tr>	
+						<% for (var j = 0; j < cookies.length; j++) { %>
+							<tr>
+								<td><%= cookies[j].cookiename %></td>
+							</tr>
+						<% } %>
+				<% } %>
+			</table>
+		</section>
+		<section>
+			<a href="/users">
+				<div class="navbutton">
+					<h2>Home</h2>
+				</div>
+			</a>
+		</section>
+	</div>	
+</body>
+</html>

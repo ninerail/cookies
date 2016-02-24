@@ -82,7 +82,7 @@ h3 {
    font-size: 21px;
    line-height: 1.3em;
    border-radius: 10px;
-   width: 40%;
+   width: 39%;
    display: inline-block;
    margin-right: .25em;
    margin-left: .78em;
@@ -105,4 +105,13 @@ h4 {
 
 td {
 	font-family: sans-serif;
+}
+
+li {
+	font-family: 'Schoolbell', sans-serif;
+}
+
+span {
+	font-family: Cursive;
+	font-size: 3em;
 }
