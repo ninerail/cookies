@@ -1,0 +1,7 @@
+MongoDB shell version: 3.2.1
+connecting to: ds015928.mongolab.com:15928/heroku_6jpd872j
+2016-02-24T15:42:07.591-0500 E QUERY    [thread1] Error: Missing expected field "pwd" :
+DB.prototype._authOrThrow@src/mongo/shell/db.js:1395:16
+@(auth):5:1
+@(auth):1:2
+
